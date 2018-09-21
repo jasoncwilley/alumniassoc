@@ -15,7 +15,6 @@ import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-DATABASES['default'].update(dj_database_url.config(conn_max_age=500, ssl_require=True))
 
 
 # Quick-start development settings - unsuitable for production
@@ -135,3 +134,4 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 django_heroku.settings(locals())
+DATABASES['default'].update(dj_database_url.config(conn_max_age=500, ssl_require=True))
