@@ -1,0 +1,79 @@
+{% load widget_tweaks %}
+{% load static %}
+<!DOCTYPE html>
+<html data-whatinput="mouse" data-whatintent="mouse" class=" whatinput-types-initial whatinput-types-keyboard whatinput-types-mouse"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <title>Index</title>
+  <link rel="stylesheet" href="{% static "css/foundation.min.css" %}">
+  <link rel="stylesheet"href="{% static "css/wireframe-theme.min.css" %}">
+  <script>document.createElement( "picture" );</script>
+  <script class="picturefill" async="async" src="{% static "js/picturefill.min.js" %}"></script>
+  <link rel="stylesheet" href="{% static "css/main.css" %}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,b">
+<meta class="foundation-mq"></head>
+
+<body class="" cz-shortcut-listen="true">
+  <h5 class="site-title">St. Leo's Catholic Church Donations Center</h5>
+  <div class="container nav-wrapper">
+    <a class="link-text nav-button" href="{% url 'index' %}">Home</a>
+    <a class="link-text nav-button" href="{% url 'signupform' %}">Sign Up</a>
+    <a class="link-text nav-button" href="#">Contact us</a>
+  </div>
+  <div class="container hero-section">
+    <div class="responsive-picture">
+      <picture><img alt="Placeholder Picture" src="{% static 'images/church.jpg' %}">
+      </picture>
+    </div>
+  </div>
+  <h3 class="section-title">
+  </h3>
+  <div class="container services-grid">
+    <div class="container service">
+      <div class="responsive-picture">
+        <picture><img alt="Placeholder Picture" src="{% static 'images/cross.jpg' %}">
+        </picture>
+      </div>
+      <h5 class="service-title">Worship God</h5>
+    </div>
+    <div class="container service">
+      <div class="responsive-picture">
+        <picture><img alt="Placeholder Picture" src="{% static 'images/grow.jpeg' %}">
+        </picture>
+      </div>
+      <h5 class="service-title">Grow in Christ<br>
+      </h5>
+    </div>
+    <div class="container service">
+      <div class="responsive-picture">
+        <picture><img alt="Placeholder Picture" src="{% static 'images/world.jpg' %}">
+        </picture>
+      </div>
+      <h5 class="service-title">Serve the World<br>
+      </h5>
+    </div>
+  </div>
+  <div class="container container-1">
+    <p class="paragraph paragraph-1">You can put a pify statement here about <strong>St. Leo's Church</strong> or a Church Moto<br>
+    </p><a class="link-button action-btn button" href="{% url 'signupform' %}">Sign Up Today</a>
+  </div>
+  <div class="container footer">
+    <div class="rule">
+      <hr>
+    </div>
+    <div class="container footer-nav">
+      <a class="link-text footer-nav" href="#">Contact Information</a>
+      <a class="link-text footer-nav" href="#">Link to Church Website</a>
+      <a class="link-text footer-nav" href="#">Another Link</a>
+    </div>
+  </div>
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/outofview.js' %}"></script>
+  <script src="{% static 'js/what-input.min.js' %}"></script>
+  <script src="{% static 'js/foundation.min.js' %}"></script>
+  <script>$(document).foundation();</script>
+
+
+</body></html>
