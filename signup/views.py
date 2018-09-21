@@ -3,6 +3,12 @@ from django.template import loader
 from django.http import HttpResponseRedirect
 from .forms import DonorSignUpForm
 from .models import DonorInfo
+
+
+
+def reports(request):
+    return render(request, 'reports.html')
+
 def index(request):
     return render(request, 'signup/index.html')
 
