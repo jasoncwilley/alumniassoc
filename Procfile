@@ -1,1 +1,1 @@
-web: gunicorn mailinglist.config.settings.wsgi
+web: gunicorn mailinglist.wsgi
