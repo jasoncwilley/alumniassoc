@@ -19,7 +19,16 @@ def sign_up_form(request):
             new.email = form.cleaned_data['email']
             new.phone = form.cleaned_data['phone']
             new.save()
-            return HttpResponseRedirect('/signupform/')
+            return HttpResponseRedirect('/donorform/')
     else:
         form = DonorSignUpForm()
     return render(request, 'signupform.html', {'form': form})
+
+
+def donor_form(request):
+    donor = DonorInfo.objects.latest('date_created')
+    name = donor.name
+    d = donor.date_created
+    date = d.strftime("%m-%d-%Y")
+    context = {'donor': donor, 'name': name, 'date': date}
+    return render(request, 'donorform.html', context)

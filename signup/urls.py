@@ -19,5 +19,6 @@ from .views import index
 from signup import views
 
 urlpatterns = [
-    path('signupform/', views.sign_up_form, name='signupform')
+    path('signupform/', views.sign_up_form, name='signupform'),
+    
 ]

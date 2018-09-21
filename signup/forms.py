@@ -1,7 +1,7 @@
 from .models import DonorInfo
 from django import forms
 import datetime
-class DonorSignUpForm(forms.Form):
+class DonorSignUpForm(forms.ModelForm):
     name = forms.CharField(label='Name', widget=forms.TextInput(attrs={'placehoder' : 'Example: Francis Willey'}))
     street_address = forms.CharField(max_length=35)
     city = forms.CharField(max_length=50)
