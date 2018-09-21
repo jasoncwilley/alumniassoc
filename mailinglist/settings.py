@@ -26,7 +26,7 @@ SECRET_KEY = '*=4i0bxvov#@7+v+g76pro5s@_at+-t(c90$y@c45m)de0@+ff'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://stleos.herokuapp.com']
+ALLOWED_HOSTS = ['stleos.herokuapp.com']
 
 
 # Application definition
