@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'whitenoise'
 ]
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
