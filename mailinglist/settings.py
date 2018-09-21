@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['stleos.herokuapp.com']
 
 INSTALLED_APPS = [
 'whitenoise',
-'whitenoise.runserver_nostatic',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
