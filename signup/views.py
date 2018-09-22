@@ -10,13 +10,14 @@ def reports(request):
     accounts = DonorInfo.objects.all()
     for account in accounts:
         created = account.date_created
-        datecreated = created.strftime("%m-%d-%Y")
+        payment_recvd = account.payment_recvd
+        date_created = created.strftime("%m-%d-%Y")
         name = account.name
         phone = account.phone
         email = account.email
         plusthirty = (created + datetime.timedelta(30))
         thirtydays = plusthirty.strftime("%m-%d-%Y")
-        context = {'accounts': accounts, 'name':name, 'email':email, 'phone':phone, 'datecreated': datecreated,  'thirtydays': thirtydays}
+        context = {'payment_recvd': payment_recvd, 'accounts': accounts, 'name':name, 'email':email, 'phone':phone, 'date_created': date_created,  'thirtydays': thirtydays}
         return render(request, 'reports.html', context)
 
 

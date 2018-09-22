@@ -15,10 +15,18 @@
   <script>document.createElement( "picture" );</script>
   <script class="picturefill" async="async" src="{% static "js/picturefill.min.js" %}"></script>
   <link rel="stylesheet" href="{% static "css/main.css" %}">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
 <meta class="foundation-mq"></head>
 <style>
+body {
+  background-color: #FFF7E8;
+}
+.btn-primary {
+  background-color: #3B2600!important;
+}
 .service {
   text-align: center;
   width:250px;
@@ -85,7 +93,7 @@ p {
   border-style: solid;
   border-color: #3B2600;
   border-width: 2px;
-  margin-left: 450px;
+  margin-left: 100px;
   margin-top: 75px;
 }
 th {
@@ -114,11 +122,88 @@ th {
   border-style: solid;
   border-color: #3B2600;
   border-width: 2px;
+  text-align: center;
 }
 .thirtydays {
   border-style: solid;
   border-color: #3B2600;
   border-width: 2px;
+  text-align: center;
+}
+.payment_recvd {
+  border-style: solid;
+  border-color: #3B2600;
+  border-width: 2px;
+  text-align: center;
+}
+td {
+  padding:10px;
+  border:solid 1px #eee;
+}
+
+input {
+  border:solid 1px #ccc;
+  border-radius: 5px;
+  padding:7px 14px;
+  margin-bottom:10px;
+  background-color: white;
+  margin-top: 25px;
+  margin-left: 50px;
+}
+input:focus {
+  outline:none;
+  border-color:#aaa;
+}
+.sort {
+  padding:8px 30px;
+  border-radius: 6px;
+  border:none;
+  display:inline-block;
+  color:#fff;
+  text-decoration: none;
+  background-color: #28a8e0;
+  height:30px;
+}
+.sort:hover {
+  text-decoration: none;
+  background-color:#FFFFFF;
+}
+.sort:focus {
+  outline:none;
+}
+.sort:after {
+  display:inline-block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  content:"";
+  position: relative;
+  top:-10px;
+  right:-5px;
+}
+.sort.asc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #fff;
+  content:"";
+  position: relative;
+  top:4px;
+  right:-5px;
+}
+.sort.desc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #fff;
+  content:"";
+  position: relative;
+  top:-4px;
+  right:-5px;
 }
 </style>
 <body class="" cz-shortcut-listen="true">
@@ -126,17 +211,24 @@ th {
   <div class="container nav-wrapper">
     <a class="link-text nav-button" href="{% url 'index' %}">Home</a>
     <a class="link-text nav-button" href="{% url 'signupform' %}">Sign Up</a>
-    <a class="link-text nav-button" href="#">Contact Us</a>
+  <a class="link-text nav-button" href="{% url 'reports' %}">Reports</a>
   </div>
 
 
 
+  <div id="users">
+    <input class="search" placeholder="Searcy by Name" />
+ <span class="sort btn-round btn-primary" data-sort="payment_recvd">Sort by Payment Recv'd</span>
+ <span class="sort btn-round  btn-primary" data-sort="thirtydays">Sort by +30 Days</span>
+
 <table class= 'table'>
+
                <tr>
                  <th>Name</th>
                  <th>Email</th>
                  <th>Phone</th>
                  <th>Date Created</th>
+                 <th>Recv'd</th>
                  <th>+30 Days</th>
                 </tr>
                <tbody class="list">
@@ -146,6 +238,7 @@ th {
                          <td class="email">{{account.email}}</td>
                          <td class="phone">{{account.phone}}</td>
                          <td class="date_created">{{account.date_created}}</td>
+                         <td class='payment_recvd'>{{account.payment_recvd}}</td>
                          <td class="thirtydays">{{thirtydays}}</td>
                      </tr>
                      {% endfor %}
@@ -193,6 +286,9 @@ th {
         <a class="link-text footer-nav" href="#">Another Link</a>
       </div>
     </div>
+    <script type='text/javascript' src="{% static 'js/report.js' %}"></script>
+     <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/outofview.js' %}"></script>
     <script src="{% static 'js/what-input.min.js' %}"></script>
