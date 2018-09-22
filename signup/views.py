@@ -3,11 +3,25 @@ from django.template import loader
 from django.http import HttpResponseRedirect
 from .forms import DonorSignUpForm
 from .models import DonorInfo
-
-
+import datetime
+from datetime import timedelta
 
 def reports(request):
-    return render(request, 'reports.html')
+    accounts = DonorInfo.objects.all()
+    for account in accounts:
+        created = account.date_created
+        datecreated = created.strftime("%m-%d-%Y")
+        name = account.name
+        phone = account.phone
+        email = account.email
+        plusthirty = (created + datetime.timedelta(30))
+        thirtydays = plusthirty.strftime("%m-%d-%Y")
+        context = {'accounts': accounts, 'name':name, 'email':email, 'phone':phone, 'datecreated': datecreated,  'thirtydays': thirtydays}
+        return render(request, 'reports.html', context)
+
+
+
+
 
 def index(request):
     return render(request, 'signup/index.html')

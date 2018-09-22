@@ -17,12 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from signup.views import index
 from signup import views
+
 app_name='signup'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('signup/', include('signup.urls')),
-    path('', views.index, name='index' ),
+    path('', views.index, name='index'),
     path('signupform/', views.sign_up_form, name='signupform'),
     path('donorform/', views.donor_form, name='donorform'),
-    path('reports/', views.reports, name='reports')
+    path('reports/', views.reports, name='reports'),
 ]

@@ -80,6 +80,46 @@ p.instruct {
 p {
   font-family: 'Satisfy', cursive;
 }
+.table {
+  width:1000px;
+  border-style: solid;
+  border-color: #3B2600;
+  border-width: 2px;
+  margin-left: 450px;
+  margin-top: 75px;
+}
+th {
+  border-style: solid;
+  border-color: #3B2600;
+  border-width: 2px;
+  text-align: center;
+  font-size: 22px;
+}
+.name {
+  border-style: solid;
+  border-color: #3B2600;
+  border-width: 2px;
+}
+.email {
+  border-style: solid;
+  border-color: #3B2600;
+  border-width: 2px;
+}
+.phone {
+  border-style: solid;
+  border-color: #3B2600;
+  border-width: 2px;
+}
+.date_created {
+  border-style: solid;
+  border-color: #3B2600;
+  border-width: 2px;
+}
+.thirtydays {
+  border-style: solid;
+  border-color: #3B2600;
+  border-width: 2px;
+}
 </style>
 <body class="" cz-shortcut-listen="true">
   <h1 class="site-title">St. Leo's Catholic Church</h1>
@@ -88,29 +128,30 @@ p {
     <a class="link-text nav-button" href="{% url 'signupform' %}">Sign Up</a>
     <a class="link-text nav-button" href="#">Contact Us</a>
   </div>
-  <div class='instructions'>
-    <p class='instruct'>We off two options to pay you annual dues to the St. Leo's Alumni Association.
-      To pay via your credit or debit card simply click on the PayPal button and submit
-      your payment.  If you prefer to use a personal check please print the form below
-      and mail it along with your check to the address on the form.  Thank you for
-       supporting St. Leo's Alumni Association.</p>
-</div>
-<div class='donationform'>
-<div class='name'>
-  <p>Dear {{donor}}:</p>
-</div>
-<div class='statement'>
-<p>Thank you for becoming a member of the Alumni Association and supporting
-  St. Leo's School.</p>
-<p>Please mail your check for $30.00  to cover your Annual dues to the following
-  address.</p>
-</div>
-<div class='address'>
-<p> SLS AA<br>
- P.O. Box<br>
-Versailles, KY 40383</p>
-</div>
-</div>
+
+
+
+<table class= 'table'>
+               <tr>
+                 <th>Name</th>
+                 <th>Email</th>
+                 <th>Phone</th>
+                 <th>Date Created</th>
+                 <th>+30 Days</th>
+                </tr>
+               <tbody class="list">
+                     {% for account in accounts %}
+                     <tr>
+                         <td class="name">{{account.name}}</td>
+                         <td class="email">{{account.email}}</td>
+                         <td class="phone">{{account.phone}}</td>
+                         <td class="date_created">{{account.date_created}}</td>
+                         <td class="thirtydays">{{thirtydays}}</td>
+                     </tr>
+                     {% endfor %}
+                 </tbody>
+</table>
+
   </div>
     <h3 class="section-title">
     </h3>
