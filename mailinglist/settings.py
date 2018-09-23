@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'signup',
     'widget_tweaks',
     'bootstrap3',
+    'bootstrapform'
 
 ]
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.cachedstaticfilesstorage'

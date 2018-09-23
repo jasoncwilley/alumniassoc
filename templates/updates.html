@@ -1,0 +1,27 @@
+{% load widget_tweaks %}
+{% load static %}
+{% load bootstrap3 %}
+
+{% load bootstrap %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="{% static 'contrib/bootstrap.css' %}">
+    <script src ='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css'></script>
+    <link rel="stylesheet" href="{% static 'contrib/font-awesome.min.css' %}">
+    <script src="{% static 'contrib/bootstrap.js' %}"></script>
+    <script
+			  src="http://code.jquery.com/jquery-1.12.4.min.js"
+			  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+			  crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <form method="post" role="form">
+      {{ form|bootstrap }}
+      {% csrf_token %}
+      <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-primary" />
+      </div>
+    </form>
+  </body>
+</html>

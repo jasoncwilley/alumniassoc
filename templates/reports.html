@@ -205,6 +205,13 @@ input:focus {
   top:-4px;
   right:-5px;
 }
+.date_recvd {
+  border-style: solid;
+  border-color: #3B2600;
+  border-width: 2px;
+  text-align: center;
+
+}
 </style>
 <body class="" cz-shortcut-listen="true">
   <h1 class="site-title">St. Leo's Catholic Church</h1>
@@ -212,6 +219,9 @@ input:focus {
     <a class="link-text nav-button" href="{% url 'index' %}">Home</a>
     <a class="link-text nav-button" href="{% url 'signupform' %}">Sign Up</a>
   <a class="link-text nav-button" href="{% url 'reports' %}">Reports</a>
+  <a class="link-text nav-button" href="{% url 'mailinglist' %}">Mailing List</a>
+  <a class="link-text nav-button" href="{% url 'updates' %}">Update Records</a>
+
   </div>
 
 
@@ -228,6 +238,7 @@ input:focus {
                  <th>Email</th>
                  <th>Phone</th>
                  <th>Date Created</th>
+                 <th>Date Recv'd</th>
                  <th>Recv'd</th>
                  <th>+30 Days</th>
                 </tr>
@@ -238,6 +249,7 @@ input:focus {
                          <td class="email">{{account.email}}</td>
                          <td class="phone">{{account.phone}}</td>
                          <td class="date_created">{{account.date_created}}</td>
+                         <td class='date_recvd'>{{account.date_recvd}}</td>
                          <td class='payment_recvd'>{{account.payment_recvd}}</td>
                          <td class="thirtydays">{{thirtydays}}</td>
                      </tr>

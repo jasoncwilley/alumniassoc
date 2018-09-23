@@ -1,10 +1,19 @@
 from django.shortcuts import render
 from django.template import loader
-from django.http import HttpResponseRedirect
-from .forms import DonorSignUpForm
+from django.urls import reverse
+from .forms import DonorSignUpForm, RecordForm
 from .models import DonorInfo
 import datetime
 from datetime import timedelta
+from django.shortcuts import render, HttpResponseRedirect, Http404, get_object_or_404
+
+def record_recvd_dates(request):
+    pk = DonorInfo.pk
+    instance = DonorInfo.objects.get(pk=1)
+    if request.method == "POST":
+        form = RecordForm(request.POST, instance=instance)
+    else:
+        form = RecordForm(instance=instance)
 
 def reports(request):
     accounts = DonorInfo.objects.all()
@@ -12,6 +21,8 @@ def reports(request):
         created = account.date_created
         payment_recvd = account.payment_recvd
         date_created = created.strftime("%m-%d-%Y")
+        daterecvd = account.date_recvd
+        date_recvd = daterecvd.strftime("%m-%d-%Y")
         name = account.name
         phone = account.phone
         email = account.email
@@ -20,6 +31,16 @@ def reports(request):
         context = {'payment_recvd': payment_recvd, 'accounts': accounts, 'name':name, 'email':email, 'phone':phone, 'date_created': date_created,  'thirtydays': thirtydays}
         return render(request, 'reports.html', context)
 
+def mailinglist(request):
+    contacts = DonorInfo.objects.all()
+    for contact in contacts:
+        name = contact.name
+        street_address = contact.street_address
+        city = contact.city
+        state = contact.state
+        zipcode = contact.zipcode
+        context = {'contacts': contacts, 'name': name, 'street_address': street_address, 'city':city, 'state': state, 'zipcode': zipcode}
+        return render(request, 'mailinglist.html', context)
 
 
 

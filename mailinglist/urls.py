@@ -26,4 +26,8 @@ urlpatterns = [
     path('signupform/', views.sign_up_form, name='signupform'),
     path('donorform/', views.donor_form, name='donorform'),
     path('reports/', views.reports, name='reports'),
-]
+    path('mailinglist/', views.mailinglist, name='mailinglist'),
+    path('updates/', views.record_recvd_dates, name='updates'),
+    path('updates/<pk>/recvd/', views.record_recvd_dates, name='recvddate'),
+
+    ]
