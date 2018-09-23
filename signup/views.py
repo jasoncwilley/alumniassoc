@@ -21,7 +21,7 @@ def reports(request):
         created = account.date_created
         payment_recvd = account.payment_recvd
         date_created = created.strftime("%m-%d-%Y")
-        date_recvd = account.date_recvd.strftime("%m-%d-%Y")
+        date_recvd = account.date_recvd
         name = account.name
         phone = account.phone
         email = account.email
