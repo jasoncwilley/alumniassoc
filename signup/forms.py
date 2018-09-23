@@ -16,10 +16,11 @@ class DonorSignUpForm(forms.ModelForm):
         required=False
     )
 
+
     class Meta:
        model = DonorInfo
        fields = ['name', 'street_address', 'city', 'state', 'zipcode', 'email', 'phone']
-       excluded = ['date_created']
+       excluded = ['date_created', 'payment_recvd' 'date_recvd']
 
 class RecordForm(forms.Form):
     name = forms.ModelChoiceField(queryset=DonorInfo.objects.all().order_by('name'))
