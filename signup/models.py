@@ -11,8 +11,8 @@ class DonorInfo(models.Model):
     email = models.EmailField(max_length=35, blank=True, null=True)
     phone = models.CharField(max_length=15, null=True, blank=True)
     date_created = models.DateTimeField(default=datetime.datetime.now, null=True)
-    payment_recvd = models.NullBooleanField(null=True)
-    date_recvd = models.DateField(null=True)
+    payment_recvd = models.NullBooleanField(null=True, blank=True)
+    date_recvd = models.DateField(null=True, blank=True)
 
     def __str__(self):
         return self.name
