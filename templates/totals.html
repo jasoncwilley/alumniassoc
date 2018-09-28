@@ -1,0 +1,263 @@
+
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+
+<!DOCTYPE html>
+<html data-whatinput="mouse" data-whatintent="mouse" class=" whatinput-types-initial whatinput-types-keyboard whatinput-types-mouse"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <title>Index</title>
+  <script>document.createElement( "picture" );</script>
+  <script class="picturefill" async="async" src="{% static "js/picturefill.min.js" %}"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+<link rel="stylesheet" href="{% static "css/foundation.min.css" %}">
+<link rel="stylesheet"href="{% static "css/wireframe-theme.min.css" %}">
+<link rel="stylesheet" href="{% static "css/main.css" %}">
+
+
+<meta class="foundation-mq"></head>
+<style>
+body {
+  background-color: #FFF7E8;
+}
+.btn-primary {
+  background-color: #3B2600!important;
+}
+.service {
+  text-align: center;
+  width:250px;
+}
+
+
+.responsive-picture {
+  width:150px;
+  height: 200px;
+  margin-left: 30px
+}
+
+
+.table {
+  width:1000px;
+  border-style: solid;
+  border-color: #3B2600;
+  border-width: 2px;
+  margin-left: 100px;
+  margin-top: 75px;
+}
+.payment_recvd {
+  border-style: solid;
+  border-color: #3B2600;
+  border-width: 2px;
+  text-align: center;
+}
+.name {
+  border-style: solid;
+  border-color: #3B2600;
+  border-width: 2px;
+}
+.email {
+  border-style: solid;
+  border-color: #3B2600;
+  border-width: 2px;
+}
+.phone {
+  border-style: solid;
+  border-color: #3B2600;
+  border-width: 2px;
+}
+.date_created {
+  border-style: solid;
+  border-color: #3B2600;
+  border-width: 2px;
+  text-align: center;
+}
+.thirtydays {
+  border-style: solid;
+  border-color: #3B2600;
+  border-width: 2px;
+  text-align: center;
+}
+.payment_recvd {
+  border-style: solid;
+  border-color: #3B2600;
+  border-width: 2px;
+  text-align: center;
+}
+.amount_recvd {
+  border-style: solid;
+  border-color: #3B2600;
+  border-width: 2px;
+  text-align: center;
+}
+td {
+  padding:10px;
+  border:solid 1px #eee;
+}
+
+input {
+  border:solid 1px #ccc;
+  border-radius: 5px;
+  padding:7px 14px;
+  margin-bottom:10px;
+  background-color: white;
+  margin-top: 25px;
+  margin-left: 50px;
+}
+input:focus {
+  outline:none;
+  border-color:#aaa;
+}
+.sort {
+  padding:8px 30px;
+  border-radius: 6px;
+  border:none;
+  display:inline-block;
+  color:#fff;
+  text-decoration: none;
+  background-color: #28a8e0;
+  height:30px;
+}
+.sort:hover {
+  text-decoration: none;
+  background-color:#FFFFFF;
+}
+.sort:focus {
+  outline:none;
+}
+.sort:after {
+  display:inline-block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  content:"";
+  position: relative;
+  top:-10px;
+  right:-5px;
+}
+.sort.asc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #fff;
+  content:"";
+  position: relative;
+  top:4px;
+  right:-5px;
+}
+.sort.desc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #fff;
+  content:"";
+  position: relative;
+  top:-4px;
+  right:-5px;
+}
+.date_recvd {
+  border-style: solid;
+  border-color: #3B2600;
+  border-width: 2px;
+  text-align: center;
+
+}
+</style>
+{% block content1 %}
+<body class="" cz-shortcut-listen="true">
+  <h1 class="site-title">St. Leo School Alumni Association</h1>
+  <div class="container nav-wrapper">
+  <a class="link-text nav-button" href="{% url 'reports' %}">Reports</a>
+  <a class="link-text nav-button" href="{% url 'mailinglist' %}">Mailing List</a>
+  <a class="link-text nav-button" href="{% url 'latepayments' %}">Overdue</a>
+
+  </div>
+  {% endblock %}
+
+
+{% block content %}
+{{total}}
+  <div id="users">
+    <input class="search" placeholder="Searcy by Name" />
+ <span class="sort btn-round btn-primary" data-sort="payment_recvd">Sort by Payment Recv'd</span>
+ <span class="sort btn-round  btn-primary" data-sort="date_created">Sort by Date Created </span>
+
+<table class= 'table'>
+
+               <tr>
+                 <th>Name</th>
+                 <th>Email</th>
+                 <th>Phone</th>
+                 <th>Date Created</th>
+                  <th>Date Recv'd</th>
+                 <th>Recv'd</th>
+                 <th>Amount Recv'd</th>
+                </tr>
+               <tbody class="list">
+                     {% for account in accounts %}
+                     <tr>
+                         <td class="name">{{account.name}}</td>
+                         <td class="email">{{account.email}}</td>
+                         <td class="phone">{{account.phone}}</td>
+                         <td class="date_created">{{account.date_created}}</td>
+                         <td class='date_recvd'>{{account.date_recvd}}</td>
+                         <td class='payment_recvd'>{{account.payment_recvd}}</td>
+                         <td class='amount_recvd'>{{account.amount_recvd}}</td>
+
+                     </tr>
+                     {% endfor %}
+                 </tbody>
+</table>
+
+  </div>
+  <div class='totals'>
+    <table class= 'table'>
+
+                   <tr>
+                     <th>September</th>
+                     <th>October</th>
+                     <th>November</th>
+                     <th>December</th>
+                      <th>January</th>
+                     <th>Febuary</th>
+                     <th>March</th>
+                     <th>April</th>
+                      <th>May</th>
+                     <th>June</th>
+                     <th>July</th>
+                     <th>August</th>
+                     <th>Yearly Total</th>
+                    </tr>
+<tbody>
+                   <tr>
+                       <td class="september"></td>
+                       <td class="october"></td>
+                       <td class="november"></td>
+                       <td class="december"></td>
+                       <td class='january'></td>
+                       <td class='febuary'></td>
+                       <td class='march'></td>
+                       <td class="april"></td>
+                       <td class="may"></td>
+                       <td class="june"></td>
+                       <td class='july'></td>
+                       <td class='august'></td>
+                       <td class='yearly'>{{total}}</td>
+                    </tr>
+
+               </tbody>
+</table>
+
+</div>
+{% endblock %}

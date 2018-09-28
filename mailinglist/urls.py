@@ -25,11 +25,12 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('signupform/', views.sign_up_form, name='signupform'),
     path('donorform/', views.donor_form, name='donorform'),
-    path('reports/', views.reports, name='reports'),
+    path('41369/', views.reports, name='reports'),
     path('mailinglist/', views.mailinglist, name='mailinglist'),
     path('updates/', views.record_recvd_dates, name='updates'),
     path('updates/<pk>/recvd/', views.record_recvd_dates, name='recvddate'),
     path('latepayments/', views.latepayments, name='latepayments'),
-    path('makeadonation/', views.makeadonation, name='makeadonation')
+    path('makeadonation/', views.makeadonation, name='makeadonation'),
+    path('totals/', views.totals, name='totals')
 
     ]

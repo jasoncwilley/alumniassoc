@@ -1,3 +1,5 @@
+
+{% extends 'base.html' %}
 {% load widget_tweaks %}
 {% load static %}
 {% load bootstrap3 %}
@@ -40,56 +42,8 @@ body {
   height: 200px;
   margin-left: 30px
 }
-  .signupform {
 
-    width: 1000px;
-    height: 1000px;
-    font-size: 16px;
-    margin-left: 25px;
-    margin-top: 15px;
-}
-.donationform {
-  width: 800px;
-  height: 450px;
-  border-style: dashed;
-  border-color: black;
-  border-width: 3px;
-  margin-left: 5px;
-  margin-top: 50px;
-  padding-right: 50px;
-}
-.name {
-  font-size: 25px;
-  margin-left: 15px;
-  margin-top: 25px;
-}
-.statement {
-  font-size: 25px;
-  margin-left: 50px;
-  margin-top: 25px;
-}
-.address {
-  font-size: 25px;
-  margin-left: 500px;
-  margin-bottom: 10px;
-}
-p.instruct {
 
-  font-family: 'Old Standard TT', serif;
-}
-.instructions {
-  width:700px;
-  margin-right: 25px;
-  height: 150px;
-  padding-left: 15px;
-  background-color: lightgray;
-  margin-top: 50px;
-  text-align: left;
-  font-size: 18px;
-  }
-p {
-  font-family: 'Satisfy', cursive;
-}
 .table {
   width:1000px;
   border-style: solid;
@@ -98,12 +52,11 @@ p {
   margin-left: 100px;
   margin-top: 75px;
 }
-th {
+.payment_recvd {
   border-style: solid;
   border-color: #3B2600;
   border-width: 2px;
   text-align: center;
-  font-size: 22px;
 }
 .name {
   border-style: solid;
@@ -133,6 +86,12 @@ th {
   text-align: center;
 }
 .payment_recvd {
+  border-style: solid;
+  border-color: #3B2600;
+  border-width: 2px;
+  text-align: center;
+}
+.amount_recvd {
   border-style: solid;
   border-color: #3B2600;
   border-width: 2px;
@@ -215,19 +174,20 @@ input:focus {
 
 }
 </style>
+{% block content1 %}
 <body class="" cz-shortcut-listen="true">
   <h1 class="site-title">St. Leo School Alumni Association</h1>
   <div class="container nav-wrapper">
-    <a class="link-text nav-button" href="{% url 'index' %}">Home</a>
-    <a class="link-text nav-button" href="{% url 'signupform' %}">Sign Up</a>
   <a class="link-text nav-button" href="{% url 'reports' %}">Reports</a>
   <a class="link-text nav-button" href="{% url 'mailinglist' %}">Mailing List</a>
   <a class="link-text nav-button" href="{% url 'latepayments' %}">Overdue</a>
+  <a class="link-text nav-button" href="{% url 'totals' %}">Monthly Totals</a>
 
   </div>
+  {% endblock %}
 
 
-
+{% block content %}
   <div id="users">
     <input class="search" placeholder="Searcy by Name" />
  <span class="sort btn-round btn-primary" data-sort="payment_recvd">Sort by Payment Recv'd</span>
@@ -242,6 +202,7 @@ input:focus {
                  <th>Date Created</th>
                   <th>Date Recv'd</th>
                  <th>Recv'd</th>
+                 <th>Amount Recv'd</th>
                 </tr>
                <tbody class="list">
                      {% for account in accounts %}
@@ -252,6 +213,7 @@ input:focus {
                          <td class="date_created">{{account.date_created}}</td>
                          <td class='date_recvd'>{{account.date_recvd}}</td>
                          <td class='payment_recvd'>{{account.payment_recvd}}</td>
+                         <td class='amount_recvd'>{{account.amount_recvd}}</td>
 
                      </tr>
                      {% endfor %}
@@ -259,53 +221,4 @@ input:focus {
 </table>
 
   </div>
-    <h3 class="section-title">
-    </h3>
-    <div class="container services-grid">
-      <div class="container service">
-        <div class="responsive-picture">
-          <picture><img alt="Placeholder Picture" src="{% static 'images/cross.jpg' %}">
-          </picture>
-        </div>
-        <h5 class="service-title">Worship God</h5>
-      </div>
-      <div class="container service">
-        <div class="responsive-picture">
-          <picture><img alt="Placeholder Picture" src="{% static 'images/grow.jpeg' %}">
-          </picture>
-        </div>
-        <h5 class="service-title">Grow in Christ<br>
-        </h5>
-      </div>
-      <div class="container service">
-        <div class="responsive-picture">
-          <picture><img alt="Placeholder Picture" src="{% static 'images/world.jpg' %}">
-          </picture>
-        </div>
-        <h5 class="service-title">Serve the World<br>
-        </h5>
-      </div>
-    </div>
-    <div class="container container-1">
-      <p class="paragraph paragraph-1">Please Join Our Effort To Provide  Catholic Education To The Next Generation.<br>
-    </div>
-    <div class="container footer">
-      <div class="rule">
-        <hr>
-      </div>
-      <div class="container footer-nav">
-        <a class="link-text footer-nav" href="#">Contact Information</a>
-        <a class="link-text footer-nav" href="#">Link to Church Website</a>
-        <a class="link-text footer-nav" href="#">Another Link</a>
-      </div>
-    </div>
-    <script type='text/javascript' src="{% static 'js/report.js' %}"></script>
-     <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
-    <script  type="text/javascript"  src="{% static 'js/jquery.min.js' %}"></script>
-    <script  type="text/javascript" src="{% static 'js/outofview.js' %}"></script>
-    <script type="text/javascript"  src="{% static 'js/what-input.min.js' %}"></script>
-    <script  type="text/javascript" src="{% static 'js/foundation.min.js' %}"></script>
-    <script>$(document).foundation();</script>
-
-
-  </body></html>
+{% endblock %}

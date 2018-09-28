@@ -13,6 +13,12 @@ class DonorInfo(models.Model):
     date_created = models.DateTimeField(default=datetime.datetime.now, null=True)
     payment_recvd = models.NullBooleanField(null=True, blank=True)
     date_recvd = models.DateField(null=True, blank=True)
-
+    amount_recvd = models.IntegerField(default=0)
     def __str__(self):
         return self.name
+
+    def sum_list(list):
+        sum = 0
+        for x in list:
+            sum += x
+        return sum

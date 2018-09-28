@@ -29,6 +29,38 @@ def record_recvd_dates(request):
         form = RecordForm(request.POST, instance=instance)
     else:
         form = RecordForm(instance=instance)
+def sum_list(list):
+    sum = 0
+    for x in list:
+        sum += x
+    return sum
+
+def totals(request):
+    total = DonorInfo.objects.all()
+    for x in total:
+        t = x.amount_recvd
+        tlist=[]
+        for x in total:
+            tlist.append(x.amount_recvd)
+    total = (sum(tlist))
+    context = { 'total': total}
+    accounts = DonorInfo.objects.all()
+    for account in accounts:
+        created = account.date_created
+        payment_recvd = account.payment_recvd
+        date_created = created.strftime("%m-%d-%Y")
+        date_recvd = account.date_recvd
+        name = account.name
+        phone = account.phone
+        email = account.email
+        plusthirty = (created + timedelta(30))
+        thirtydays = plusthirty.strftime("%m-%d-%Y")
+        context = {'total': total, 'payment_recvd': payment_recvd, 'accounts': accounts, 'name':name, 'email':email, 'phone':phone, 'date_created': date_created,  'thirtydays': thirtydays}
+        return render(request, 'totals.html', context)
+
+
+
+
 
 def reports(request):
     accounts = DonorInfo.objects.all()
@@ -43,7 +75,7 @@ def reports(request):
         plusthirty = (created + timedelta(30))
         thirtydays = plusthirty.strftime("%m-%d-%Y")
         context = {'payment_recvd': payment_recvd, 'accounts': accounts, 'name':name, 'email':email, 'phone':phone, 'date_created': date_created,  'thirtydays': thirtydays}
-        return render(request, 'reports.html', context)
+        return render(request, '41369.html', context)
 
 def mailinglist(request):
     contacts = DonorInfo.objects.all()
