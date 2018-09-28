@@ -119,9 +119,9 @@ TIME_ZONE = 'EST'
 USE_I18N = True
 
 
-DATE_INPUT_FORMATS = ['%d-%m-%Y']
+
 USE_TZ = True
-DATETIME_FORMAT = ['%d-%m-%Y']
+DATETIME_FORMAT = 'm-d-Y'
 USE_L10N = False
 
 # Static files (CSS, JavaScript, Images)

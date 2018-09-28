@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% load static %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+
+{%block content%}
+<div class='instructions'>
+  <p class='instruct'>We currently offer two options for our supports to submit a one time donation.
+    To pay via your credit or debit card simply click on the PayPal button and submit
+    your payment.  If you prefer to use a personal check please print the form below
+    and mail it along with your personal check to the address on the form.  Thank you for
+     supporting St. Leo's Alumni Association.</p>
+</div>
+<div class='buttoncontainer'>
+
+<button class='btn-primary paypalbutton' href='http://www.paypal.com'>PayPal
+</button>
+<br></div>
+<div class='or'><p>
+OR</p><p> Mail in your donation with a copy of the form below.
+</p></div>
+
+<div class='donationform'>
+<div class='name'><br>
+<p>Dear Donor:</p>
+</div>
+<div class='statement'>
+<p>Thank you for becoming a member of the Alumni Association and <br>supporting
+St. Leo's School. Please mail your donation to the address <br>below.</p>
+</div><br><br>
+<div class='address'>
+<p> SLS AA<br>
+P.O. Box<br>
+Versailles, KY 40383</p>
+</div>
+</div>
+</div>
+  <h3 class="section-title">
+  </h3>{% endblock %}

@@ -29,5 +29,7 @@ urlpatterns = [
     path('mailinglist/', views.mailinglist, name='mailinglist'),
     path('updates/', views.record_recvd_dates, name='updates'),
     path('updates/<pk>/recvd/', views.record_recvd_dates, name='recvddate'),
+    path('latepayments/', views.latepayments, name='latepayments'),
+    path('makeadonation/', views.makeadonation, name='makeadonation')
 
     ]

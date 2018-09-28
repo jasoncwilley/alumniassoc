@@ -18,13 +18,98 @@
 body {
   background-color: #FFF7E8;
 }
+#worship {
+  height: 100px;
+  width: 100px;
+  margin-left: 30px;
+}
+#grow {
+  height: 100px;
+  width: 100px;
+  margin-left: 25px;
+}
+#world {
+  height: 100px;
+  width: 100px;
+  margin-left: 38px;
+}
+#signupbutton {
+  color: white;
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  padding-top: 10px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+}
+#signupbutton:hover {
+  color: #3B2600;
+  background-color: #FFF7E8;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #3B2600;
+}
+.nav-wrapper a {
+  color: white;
+  width: 140px;
+  padding-left: 30px;
+  height: 40px;
+  radius: 50%;
+  padding-top: 10px;
+  font-size: 18px;
+}
+
+#button:hover {
+background-color: #3B2600;
+border-style: solid;
+border-width: 2px;
+border-color: white;
+color: white;
+
+}
+#button {
+  color: #3B2600;
+  text-align: center;
+  margin-left: 75px;
+  margin-right: 75px;
+  font-size: 15px;
+background-color: #FFF7E8;
+border-style: solid;
+border-width: 1px;
+border-color: #3B2600;
+}
+#navbar {
+  background-color: #FFF7E8;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #3B2600;
+  color: black!important;
+}
+#clickhere{
+  font-size: 18px;
+  color: #3B2600;
+  margin-left: 0px;
+
+}
+.section-title {
+margin-left: 50px;
+font-size: 20px;
+margin-right: 75px;
+text-align: left;
+margin-top: 50px;
+}
+.section-title a {
+  font-size: 22px;
+  color: #3B2600;
+  margin-left: 2px;
+}
 </style>
 <body class="" cz-shortcut-listen="true">
   <h1 class="site-title">St. Leo School Alumni Association</h1>
   <div class="container nav-wrapper">
-    <a class="link-text nav-button" href="{% url 'index' %}">Home</a>
-    <a class="link-text nav-button" href="{% url 'signupform' %}">Sign Up</a>
-    <a class="link-text nav-button" href="{% url 'reports' %}">Reports</a>
+    <a class="link-text nav-button" href="{% url 'makeadonation' %}">Make a Donation</a>
+    <a class="link-text nav-button" href="{% url 'signupform' %}">Join SLAA Today</a>
   </div>
   <div class="container hero-section">
     <div class="responsive-picture">
@@ -32,19 +117,21 @@ body {
       </picture>
     </div>
   </div>
-  <h3 class="section-title">
-  </h3>
+  <p class="section-title">
+    Thank you for visiting the St. Leo Alumni Association. We are a self supported organization and <a ><strong>100%</strong></a> of all donations
+    are used to pay the tuition of a student who may not notherwise be able to attend school at Saint Leo.  Please click here to make a <strong><a id='onetimeodnation' href='#'>One Time Donation</a></strong> or for a donation in the amount of $30.00 or more you can <a id='joinslaa' href='#'><strong>Join the SLAA</strong></a> today!</a>
+  </p>
   <div class="container services-grid">
     <div class="container service">
       <div class="responsive-picture">
-        <picture><img alt="Placeholder Picture" src="{% static 'images/cross.jpg' %}">
+        <picture><img id='grow' alt="Placeholder Picture" src="{% static 'images/cross.jpg' %}">
         </picture>
       </div>
       <h5 class="service-title">Worship God</h5>
     </div>
     <div class="container service">
       <div class="responsive-picture">
-        <picture><img alt="Placeholder Picture" src="{% static 'images/grow.jpeg' %}">
+        <picture><img id='worship' alt="Placeholder Picture" src="{% static 'images/grow.jpeg' %}">
         </picture>
       </div>
       <h5 class="service-title">Grow in Christ<br>
@@ -52,7 +139,7 @@ body {
     </div>
     <div class="container service">
       <div class="responsive-picture">
-        <picture><img alt="Placeholder Picture" src="{% static 'images/world.jpg' %}">
+        <picture><img id='world'alt="Placeholder Picture" src="{% static 'images/world.jpg' %}">
         </picture>
       </div>
       <h5 class="service-title">Serve the World<br>
@@ -60,17 +147,17 @@ body {
     </div>
   </div>
   <div class="container container-1">
-    <p class="paragraph paragraph-1">Please Join Our Effort To Provide  Catholic Education To The Next Generation.<br>
-    </p><a class="link-button action-btn button" href="{% url 'signupform' %}">Sign Up Today</a>
+    <p class="paragraph paragraph-1">If you attended St. Leo School or are a "Friend" who is interested in our efforts to continue
+      to provide a Catholic Education to the Next Generation.  Please Join the Alumni Association.
+    </p><a id='signupbutton' class="link-button action-btn button" href="{% url 'signupform' %}"><strong>Join SLAA Today!</strong></a>
   </div>
   <div class="container footer">
     <div class="rule">
       <hr>
     </div>
     <div class="container footer-nav">
-      <a class="link-text footer-nav" href="#">Contact Information</a>
-      <a class="link-text footer-nav" href="#">Link to Church Website</a>
-      <a class="link-text footer-nav" href="#">Another Link</a>
+      <a id='button' class="link-text  btn link-button action-btn button  footer-nav" href="http://saintleoky.org/">St. Leo School Website/a>
+      <a id='button' class="link-text btn link-button action-btn button footer-nav" href="http://saintleoparishky.org/">St. Leo Church Website</a>
     </div>
   </div>
   <script src="{% static 'js/jquery.min.js' %}"></script>

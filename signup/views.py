@@ -6,6 +6,21 @@ from .models import DonorInfo
 import datetime
 from datetime import timedelta
 from django.shortcuts import render, HttpResponseRedirect, Http404, get_object_or_404
+from datetime import datetime, timedelta
+from datetime import timedelta
+
+
+def latepayments(request):
+    accounts = DonorInfo.objects.all()
+    last_month = datetime.today() - timedelta(days=30)
+    lateaccounts = DonorInfo.objects.all().filter(date_created__lte=last_month).filter(**{'payment_recvd': 'None'})
+    for account in accounts:
+        created = account.date_created
+        plusthirty = created + timedelta(30)
+        thirtydays = plusthirty
+
+        context = { 'lateaccounts': lateaccounts, 'accounts':accounts, 'thirtydays': thirtydays }
+        return render(request, 'latepayments.html', context)
 
 def record_recvd_dates(request):
     pk = DonorInfo.pk
@@ -25,7 +40,7 @@ def reports(request):
         name = account.name
         phone = account.phone
         email = account.email
-        plusthirty = (created + datetime.timedelta(30))
+        plusthirty = (created + timedelta(30))
         thirtydays = plusthirty.strftime("%m-%d-%Y")
         context = {'payment_recvd': payment_recvd, 'accounts': accounts, 'name':name, 'email':email, 'phone':phone, 'date_created': date_created,  'thirtydays': thirtydays}
         return render(request, 'reports.html', context)
@@ -73,3 +88,6 @@ def donor_form(request):
     date = d.strftime("%m-%d-%Y")
     context = {'donor': donor, 'name': name, 'date': date}
     return render(request, 'donorform.html', context)
+
+def makeadonation(request):
+    return render( request, 'makeadonation.html')

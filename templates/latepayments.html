@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="">
   <meta name="keywords" content="">
-  <title>Index</title>
+  <title>Late Payments</title>
   <script>document.createElement( "picture" );</script>
   <script class="picturefill" async="async" src="{% static "js/picturefill.min.js" %}"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -230,8 +230,6 @@ input:focus {
 
   <div id="users">
     <input class="search" placeholder="Searcy by Name" />
- <span class="sort btn-round btn-primary" data-sort="payment_recvd">Sort by Payment Recv'd</span>
- <span class="sort btn-round  btn-primary" data-sort="date_created">Sort by Date Created </span>
 
 <table class= 'table'>
 
@@ -240,11 +238,11 @@ input:focus {
                  <th>Email</th>
                  <th>Phone</th>
                  <th>Date Created</th>
-                  <th>Date Recv'd</th>
+                 <th>Date Recv'd</th>
                  <th>Recv'd</th>
-                </tr>
+               </tr>
                <tbody class="list">
-                     {% for account in accounts %}
+                     {% for account in lateaccounts %}
                      <tr>
                          <td class="name">{{account.name}}</td>
                          <td class="email">{{account.email}}</td>
@@ -252,7 +250,6 @@ input:focus {
                          <td class="date_created">{{account.date_created}}</td>
                          <td class='date_recvd'>{{account.date_recvd}}</td>
                          <td class='payment_recvd'>{{account.payment_recvd}}</td>
-
                      </tr>
                      {% endfor %}
                  </tbody>
