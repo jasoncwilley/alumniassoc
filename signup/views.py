@@ -45,6 +45,71 @@ def totals(request):
     total = (sum(tlist))
     context = { 'total': total}
     accounts = DonorInfo.objects.all()
+    d1 = datetime(2018, 9, 1)
+    d2 = datetime(2018, 9, 30)
+    sept = DonorInfo.objects.filter(date_recvd__gte=d1, date_recvd__lte=d2)
+
+    for x in sept:
+        t = x.amount_recvd
+        tlist=[]
+        for x in sept:
+            tlist.append(x.amount_recvd)
+    sept = (sum(tlist))
+    d1 = datetime(2018, 10, 1)
+    d2 = datetime(2018, 10, 31)
+    october = DonorInfo.objects.filter(date_recvd__gte=d1, date_recvd__lte=d2)
+
+    for x in october:
+        t = x.amount_recvd
+        tlist=[]
+        for x in october:
+            tlist.append(x.amount_recvd)
+    october = (sum(tlist))
+
+    d1 = datetime(2018, 11, 1)
+    d2 = datetime(2018, 11, 30)
+    november = DonorInfo.objects.filter(date_recvd__gte=d1, date_recvd__lte=d2)
+
+    for x in november:
+        t = x.amount_recvd
+        tlist=[]
+        for x in november:
+            tlist.append(x.amount_recvd)
+    november = (sum(tlist))
+
+    d1 = datetime(2018, 12, 1)
+    d2 = datetime(2018, 12, 31)
+    december = DonorInfo.objects.filter(date_recvd__gte=d1, date_recvd__lte=d2)
+
+    for x in december:
+        t = x.amount_recvd
+        tlist=[]
+        for x in december:
+            tlist.append(x.amount_recvd)
+    december = (sum(tlist))
+
+    d1 = datetime(2019, 1, 1)
+    d2 = datetime(2019, 1, 31)
+    jan = DonorInfo.objects.filter(date_recvd__gte=d1, date_recvd__lte=d2)
+
+    for x in jan:
+        t = x.amount_recvd
+        tlist=[]
+        for x in jan:
+            tlist.append(x.amount_recvd)
+    jan = (sum(tlist))
+
+    d1 = datetime(2019, 2, 1)
+    d2 = datetime(2019, 2, 28)
+    feb = DonorInfo.objects.filter(date_recvd__gte=d1, date_recvd__lte=d2)
+
+    for x in feb:
+        t = x.amount_recvd
+        tlist=[]
+        for x in feb:
+            tlist.append(x.amount_recvd)
+    feb = (sum(tlist))
+
     for account in accounts:
         created = account.date_created
         payment_recvd = account.payment_recvd
@@ -55,7 +120,7 @@ def totals(request):
         email = account.email
         plusthirty = (created + timedelta(30))
         thirtydays = plusthirty.strftime("%m-%d-%Y")
-        context = {'total': total, 'payment_recvd': payment_recvd, 'accounts': accounts, 'name':name, 'email':email, 'phone':phone, 'date_created': date_created,  'thirtydays': thirtydays}
+        context = {'november': november, 'december': december, 'jan': jan, 'feb': feb, 'october': october, 'sept': sept, 'total': total, 'payment_recvd': payment_recvd, 'accounts': accounts, 'name':name, 'email':email, 'phone':phone, 'date_created': date_created,  'thirtydays': thirtydays}
         return render(request, 'totals.html', context)
 
 
