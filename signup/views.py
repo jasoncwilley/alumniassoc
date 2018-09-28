@@ -140,7 +140,7 @@ def reports(request):
         plusthirty = (created + timedelta(30))
         thirtydays = plusthirty.strftime("%m-%d-%Y")
         context = {'payment_recvd': payment_recvd, 'accounts': accounts, 'name':name, 'email':email, 'phone':phone, 'date_created': date_created,  'thirtydays': thirtydays}
-        return render(request, '41369.html', context)
+    return render(request, '41369.html', context)
 
 def mailinglist(request):
     contacts = DonorInfo.objects.all()
