@@ -110,6 +110,76 @@ def totals(request):
             tlist.append(x.amount_recvd)
     feb = (sum(tlist))
 
+    d1 = datetime(2019,3, 1)
+    d2 = datetime(2019, 3, 30)
+    march = DonorInfo.objects.filter(date_recvd__gte=d1, date_recvd__lte=d2)
+
+    for x in march:
+        t = x.amount_recvd
+        tlist=[]
+        for x in april:
+            tlist.append(x.amount_recvd)
+
+    april = (sum(tlist))
+    d1 = datetime(2019,4, 1)
+    d2 = datetime(2019, 4, 30)
+    april = DonorInfo.objects.filter(date_recvd__gte=d1, date_recvd__lte=d2)
+
+    for x in april:
+        t = x.amount_recvd
+        tlist=[]
+        for x in april:
+            tlist.append(x.amount_recvd)
+    april = (sum(tlist))
+
+    may = (sum(tlist))
+    d1 = datetime(2019,5, 1)
+    d2 = datetime(2019, 5, 31)
+    may = DonorInfo.objects.filter(date_recvd__gte=d1, date_recvd__lte=d2)
+
+    for x in may:
+        t = x.amount_recvd
+        tlist=[]
+        for x in may:
+            tlist.append(x.amount_recvd)
+    may = (sum(tlist))
+
+    june = (sum(tlist))
+    d1 = datetime(2019,6, 1)
+    d2 = datetime(2019, 6, 30)
+    june = DonorInfo.objects.filter(date_recvd__gte=d1, date_recvd__lte=d2)
+
+    for x in june:
+        t = x.amount_recvd
+        tlist=[]
+        for x in june:
+            tlist.append(x.amount_recvd)
+    june = (sum(tlist))
+
+    july = (sum(tlist))
+    d1 = datetime(2019,7, 1)
+    d2 = datetime(2019, 7, 30)
+    july = DonorInfo.objects.filter(date_recvd__gte=d1, date_recvd__lte=d2)
+
+    for x in july:
+        t = x.amount_recvd
+        tlist=[]
+        for x in july:
+            tlist.append(x.amount_recvd)
+    july = (sum(tlist))
+    july = (sum(tlist))
+
+    d1 = datetime(2019,8, 1)
+    d2 = datetime(2019, 8, 31)
+    august = DonorInfo.objects.filter(date_recvd__gte=d1, date_recvd__lte=d2)
+
+    for x in august:
+        t = x.amount_recvd
+        tlist=[]
+        for x in august:
+            tlist.append(x.amount_recvd)
+    august = (sum(tlist))
+
     for account in accounts:
         created = account.date_created
         payment_recvd = account.payment_recvd
