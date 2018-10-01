@@ -11,45 +11,25 @@ from datetime import timedelta
 
 def september(request):
     payments = DonorInfo.objects.all()
-    for x in payments:
-        name = x.name
-        date_recvd = x.date_recvd
-        amount_recvd = x.amount_recvd
-        d1 = datetime(2018, 9, 1)
-        d2 = datetime(2018, 9, 30)
-        accounts = DonorInfo.objects.filter(date_recvd__gte=d1, date_recvd__lte=d2)
-        september = DonorInfo.objects.all()
-        for x in september:
-            t = x.amount_recvd
-            tlist=[]
-            for x in september:
-                tlist.append(x.amount_recvd)
-                sept = (sum(tlist))
-    context = { 'sept': sept, 'accounts': accounts, 'paytments': payments, 'sept':sept, 'amount_recvd':amount_recvd, 'name':name}
-    return render(request, 'sept.html', context)
+    name = payments.name
+    date_recvd = payments.date_recvd
+    amount_recvd = payments.amount_recvd
+    d1 = datetime(2018, 9, 1)
+    d2 = datetime(2018, 9, 30)
+    sept = DonorInfo.objects.filter(date_recvd__gte=d1, date_recvd__lte=d2)
 
+    for x in sept:
+        t = x.amount_recvd
+        tlist=[]
+        for x in sept:
+            tlist.append(x.amount_recvd)
+            sept = (sum(tlist))
+    context = { 'paytments': payments, 'sept':sept, 'amount_recvd':amount_recvd, 'name':name}
+    return render(request, 'jan.html', context)
+    
 
 def october(request):
-    payments = DonorInfo.objects.all()
-    for x in payments:
-        name = x.name
-        date_recvd = x.date_recvd
-        amount_recvd = x.amount_recvd
-        d1 = datetime(2018, 10, 1)
-        d2 = datetime(2018, 10, 31)
-        accounts = DonorInfo.objects.filter(date_recvd__gte=d1, date_recvd__lte=d2)
-        october = DonorInfo.objects.all()
-        for x in october:
-            t = x.amount_recvd
-            tlist=[]
-            for x in october:
-                tlist.append(x.amount_recvd)
-                octobersum = (sum(tlist))
-            context = { 'octobersum': octobersum, 'october': october, 'accounts': accounts, 'paytments': payments, 'amount_recvd':amount_recvd, 'name':name}
-            return render(request, 'october.html', context)
-
-    context = { 'octobersum': octobersum, 'october': october, 'accounts': accounts, 'paytments': payments,  'amount_recvd':amount_recvd, 'name':name}
-    return render(request, 'october.html', context)
+    pass
 
 def november(request):
     pass

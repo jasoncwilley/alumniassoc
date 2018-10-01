@@ -10,7 +10,10 @@
   <meta charset="utf-8">
   <meta name="description" content="">
   <meta name="keywords" content="">
-  <title>Index</title>
+  <title>Reports</title>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
   <script>document.createElement( "picture" );</script>
   <script class="picturefill" async="async" src="{% static "js/picturefill.min.js" %}"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -43,8 +46,8 @@ body {
 }
 
 
-.table {
-  width:1000px;
+.reporttable {
+  width:700px;
   border-style: solid;
   border-color: #3B2600;
   border-width: 2px;
@@ -172,6 +175,12 @@ input:focus {
   text-align: center;
 
 }
+.reportscontainer {
+  margin-left: 125px;
+}
+.totals tr {
+  margin-left: 100px;
+}
 </style>
 {% block content1 %}
 <body class="" cz-shortcut-listen="true">
@@ -180,83 +189,65 @@ input:focus {
   <a class="link-text nav-button" href="{% url 'reports' %}">Reports</a>
   <a class="link-text nav-button" href="{% url 'mailinglist' %}">Mailing List</a>
   <a class="link-text nav-button" href="{% url 'latepayments' %}">Overdue</a>
+  <div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn link-text nav-button">Monthly Totals</button>
+    <div id="myDropdown" class="dropdown-content">
+    <a  href="/jan/">January</a>
+    <a  href="/feb/">Febuary</a>
+    <a  href="/march/">March</a>
+    <a  href="/april/">April</a>
+    <a  href="/may/">May</a>
+    <a  href="/june/">June</a>
+    <a  href="/july/">July</a>
+    <a  href="/august/">August</a>
+    <a  href="/sept/">Septemer</a>
+    <a  href="/oct/">Ocotober</a>
+    <a  href="/nov/">November</a>
+    <a  href="/dec/">December</a>
+  </div>
+</div>
 
   </div>
   {% endblock %}
 
 
 {% block content %}
-{{total}}
-  <div id="users">
-    <input class="search" placeholder="Searcy by Name" />
- <span class="sort btn-round btn-primary" data-sort="payment_recvd">Sort by Payment Recv'd</span>
- <span class="sort btn-round  btn-primary" data-sort="date_created">Sort by Date Created </span>
-
+<div class='reportcontainer'>
 <table class= 'table'>
 
                <tr>
                  <th>Name</th>
-                 <th>Email</th>
-                 <th>Phone</th>
-                 <th>Date Created</th>
                   <th>Date Recv'd</th>
-                 <th>Recv'd</th>
                  <th>Amount Recv'd</th>
                 </tr>
                <tbody class="list">
                      {% for account in accounts %}
                      <tr>
                          <td class="name">{{account.name}}</td>
-                         <td class="email">{{account.email}}</td>
-                         <td class="phone">{{account.phone}}</td>
-                         <td class="date_created">{{account.date_created}}</td>
                          <td class='date_recvd'>{{account.date_recvd}}</td>
-                         <td class='payment_recvd'>{{account.payment_recvd}}</td>
                          <td class='amount_recvd'>{{account.amount_recvd}}</td>
 
                      </tr>
                      {% endfor %}
                  </tbody>
 </table>
+<table class= 'table'>
+
+               <tr>
+                 <th>September 2018</th>
+                  <th>YTD</th>
+                </tr>
+               <tbody class="list">
+
+                     <tr>
+                         <td class="name">${{sept}}.00</td>
+                         <td class='date_recvd'></td>
+                       </tr>
+
+                   </tbody>
+  </table>
+
+
 
   </div>
-  <div class='totals'>
-    <table class= 'table'>
-
-                   <tr>
-                     <th>September</th>
-                     <th>October</th>
-                     <th>November</th>
-                     <th>December</th>
-                      <th>January</th>
-                     <th>Febuary</th>
-                     <th>March</th>
-                     <th>April</th>
-                      <th>May</th>
-                     <th>June</th>
-                     <th>July</th>
-                     <th>August</th>
-                     <th>Yearly Total</th>
-                    </tr>
-<tbody>
-                   <tr>
-                       <td class="september"></td>
-                       <td class="october"></td>
-                       <td class="november"></td>
-                       <td class="december"></td>
-                       <td class='january'></td>
-                       <td class='febuary'></td>
-                       <td class='march'></td>
-                       <td class="april"></td>
-                       <td class="may"></td>
-                       <td class="june"></td>
-                       <td class='july'></td>
-                       <td class='august'></td>
-                       <td class='yearly'>{{total}}</td>
-                    </tr>
-
-               </tbody>
-</table>
-
-</div>
 {% endblock %}

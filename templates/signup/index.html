@@ -3,9 +3,8 @@
 <!DOCTYPE html>
 <html data-whatinput="mouse" data-whatintent="mouse" class=" whatinput-types-initial whatinput-types-keyboard whatinput-types-mouse"><head>
   <meta charset="utf-8">
-  <meta name="description" content="">
-  <meta name="keywords" content="">
   <title>St. Leo School Alumni Association</title>
+  <link rel="stylesheet" href="{% static "css/index.css" %}">
   <link rel="stylesheet" href="{% static "css/foundation.min.css" %}">
   <link rel="stylesheet"href="{% static "css/wireframe-theme.min.css" %}">
   <script>document.createElement( "picture" );</script>
@@ -14,26 +13,18 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,b">
 <meta class="foundation-mq"></head>
 <style>
+@media screen and (max-width: 600px) {
+  .blockcontent {
+    margin-top: 250px;
+  }
+}
+
 body {
   background-color: #FFF7E8;
-}
-#worship {
-  height: 100px;
-  width: 100px;
-  margin-left: 30px;
-}
-#grow {
-  height: 100px;
-  width: 100px;
-  margin-left: 25px;
-}
-#world {
-  height: 100px;
-  width: 100px;
-  margin-left: 38px;
+  color: #3B2600;
 }
 #signupbutton {
-  color: white;
+  color: #FFF7E8;
   width: 200px;
   height: 40px;
   text-align: center;
@@ -48,23 +39,20 @@ body {
   border-style: solid;
   border-width: 1px;
   border-color: #3B2600;
-}
-.nav-wrapper a {
-  color: white;
-  width: 140px;
-  padding-left: 30px;
-  height: 40px;
-  radius: 50%;
-  padding-top: 10px;
-  font-size: 18px;
-}
 
+}
 #button:hover {
 background-color: #3B2600;
 border-style: solid;
 border-width: 2px;
 border-color: white;
 color: white;
+
+}
+#clickhere{
+  font-size: 18px;
+  color: #3B2600;
+  margin-left: 0px;
 
 }
 #button {
@@ -78,92 +66,127 @@ border-style: solid;
 border-width: 1px;
 border-color: #3B2600;
 }
-#navbar {
-  background-color: #FFF7E8;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #3B2600;
-  color: black!important;
+.grid-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 50px 1200px 50px;
+  grid-template-rows: 500px 300px 150px;
+  grid-gap: 1px;
+  grid-template-areas: "margin1 nav margin4" "margin2 blockcontent margin5" "margin3 footer margin6";
 }
-#clickhere{
-  font-size: 18px;
-  color: #3B2600;
-  margin-left: 0px;
 
-}
-.section-title {
-margin-left: 50px;
-font-size: 20px;
-margin-right: 75px;
-text-align: left;
-margin-top: 50px;
-}
-.section-title a {
-  font-size: 22px;
-  color: #3B2600;
-  margin-left: 2px;
-}
+.margin1 { grid-area: margin1; }
+
+.margin2 { grid-area: margin2; }
+
+.margin3 { grid-area: margin3; }
+
+.margin4 { grid-area: margin4; }
+
+.margin5 { grid-area: margin5; }
+
+.margin6 { grid-area: margin6; }
+
+.nav { grid-area: nav; }
+
+.blockcontent { grid-area: blockcontent;
+      margin-left: 50px;
+      margin-right: 50px;
+      font-family: 'Old Standard TT', serif;
+      font-size: 20px;
+      
+
+ }
+
+.footer { grid-area: footer; }
+
 </style>
-<body class="" cz-shortcut-listen="true">
-  <h1 class="site-title">St. Leo School Alumni Association</h1>
-  <div class="container nav-wrapper">
-    <a class="link-text nav-button" href="{% url 'makeadonation' %}">Make a Donation</a>
-    <a class="link-text nav-button" href="{% url 'signupform' %}">Join SLAA Today</a>
+<div class="grid-container">
+  <div class="margin1">
   </div>
-  <div class="container hero-section">
-    <div class="responsive-picture">
-      <picture><img alt="Placeholder Picture" src="{% static 'images/church1.jpg' %}">
-      </picture>
+  <div class="margin2">
+  </div>
+  <div class="margin3">
+  </div>
+  <div class="margin4">
+  </div>
+  <div class="margin5">
+  </div>
+  <div class="margin6">
+  </div>
+  <div class="nav"><br>
+    <h1 class="site-title">St. Leo School Alumni Association</h1>
+    <div class="container nav-wrapper">
+      <a class="link-text nav-button" href="{% url 'makeadonation' %}">Make a Donation</a>
+      <a class="link-text nav-button" href="{% url 'signupform' %}">Join SLS AA Today</a>
     </div>
-  </div>
-  <p class="section-title">
-    Thank you for visiting the St. Leo Alumni Association. We are a self supported organization and <a ><strong>100%</strong></a> of all donations
-    are used to pay the tuition of a student who may not notherwise be able to attend school at Saint Leo.  Please click here to make a <strong><a id='onetimeodnation' href='#'>One Time Donation</a></strong> or for a donation in the amount of $30.00 or more you can <a id='joinslaa' href='#'><strong>Join the SLAA</strong></a> today!</a>
-  </p>
-  <div class="container services-grid">
-    <div class="container service">
+    <div class="container hero-section">
       <div class="responsive-picture">
-        <picture><img id='grow' alt="Placeholder Picture" src="{% static 'images/cross.jpg' %}">
+        <picture><img alt="Placeholder Picture" src="{% static 'images/church.jpg' %}" width='1200' height="500px">
         </picture>
       </div>
-      <h5 class="service-title">Worship God</h5>
     </div>
-    <div class="container service">
-      <div class="responsive-picture">
-        <picture><img id='worship' alt="Placeholder Picture" src="{% static 'images/grow.jpeg' %}">
-        </picture>
+  </div>
+  <div class="blockcontent">
+    <p class="section-title"><br>
+      Thank you for visiting the St. Leo Alumni Association. We are a self supported organization and <a ><strong>100%</strong></a> of all the dues and</p><p> donations
+    we collect go to support our tuition assistance porgram for students that otherwise may not be able to attend </p><p>St. Leo Scool.  If you attended St. Leo School or are just
+    a friend, please click here to  <a id='joinslaa' href='/signupform/'><strong>Join Today</strong></a></a> or here to make a <strong><a id='onetimeodnation' href='/makeadonation/'></p><p>One Time Donation</a></strong>
+    </p>
+  </div><br><br>
+  <div class="footer">
+    <div class="container services-grid">
+      <div class="container service">
+        <div class="responsive-picture">
+          <picture><img id='grow' alt="Placeholder Picture" src="{% static 'images/cross.jpg' %}">
+          </picture>
+        </div>
+        <h5 class="service-title">Worship God</h5>
       </div>
-      <h5 class="service-title">Grow in Christ<br>
-      </h5>
-    </div>
-    <div class="container service">
-      <div class="responsive-picture">
-        <picture><img id='world'alt="Placeholder Picture" src="{% static 'images/world.jpg' %}">
-        </picture>
+      <div class="container service">
+        <div class="responsive-picture">
+          <picture><img id='worship' alt="Placeholder Picture" src="{% static 'images/grow.jpeg' %}">
+          </picture>
+        </div>
+        <h5 class="service-title">Grow in Christ<br>
+        </h5>
       </div>
-      <h5 class="service-title">Serve the World<br>
-      </h5>
+      <div class="container service">
+        <div class="responsive-picture">
+          <picture><img id='world'alt="Placeholder Picture" src="{% static 'images/world.jpg' %}">
+          </picture>
+        </div>
+        <h5 class="service-title">Serve the World<br>
+        </h5>
+      </div>
     </div>
-  </div>
-  <div class="container container-1">
-    <p class="paragraph paragraph-1">If you attended St. Leo School or are a "Friend" who is interested in our efforts to continue
-      to provide a Catholic Education to the Next Generation.  Please Join the Alumni Association.
-    </p><a id='signupbutton' class="link-button action-btn button" href="{% url 'signupform' %}"><strong>Join SLAA Today!</strong></a>
-  </div>
-  <div class="container footer">
-    <div class="rule">
-      <hr>
+    <div class="container container-1">
+      <p class="paragraph paragraph-1">If you attended St. Leo School or are a "Friend" who is interested in our efforts to continue
+        to provide a Catholic Education to the Next Generation.  Please Join the Alumni Association.
+      </p><a id='signupbutton' class="link-button action-btn button" href="{% url 'signupform' %}"><strong>Join SLS AA Today!</strong></a>
     </div>
-    <div class="container footer-nav">
-      <a id='button' class="link-text  btn link-button action-btn button  footer-nav" href="http://saintleoky.org/">St. Leo School Website/a>
-      <a id='button' class="link-text btn link-button action-btn button footer-nav" href="http://saintleoparishky.org/">St. Leo Church Website</a>
+    <div class="container footer">
+      <div class="rule">
+        <hr>
+      </div>
+      <div class="container footer-nav">
+        <a id='button' class="link-text  btn link-button action-btn button  footer-nav" href="http://saintleoky.org/">St. Leo School Website/a>
+        <a id='button' class="link-text btn link-button action-btn button footer-nav" href="http://saintleoparishky.org/">St. Leo Church Website</a>
+      </div>
     </div>
-  </div>
-  <script src="{% static 'js/jquery.min.js' %}"></script>
-  <script src="{% static 'js/outofview.js' %}"></script>
-  <script src="{% static 'js/what-input.min.js' %}"></script>
-  <script src="{% static 'js/foundation.min.js' %}"></script>
-  <script>$(document).foundation();</script>
 
 
-</body></html>
+
+
+
+  </div>
+</div>
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/outofview.js' %}"></script>
+<script src="{% static 'js/what-input.min.js' %}"></script>
+<script src="{% static 'js/foundation.min.js' %}"></script>
+<script>$(document).foundation();</script>
+  </body>
+
+  </html>

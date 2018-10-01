@@ -31,6 +31,8 @@ urlpatterns = [
     path('updates/<pk>/recvd/', views.record_recvd_dates, name='recvddate'),
     path('latepayments/', views.latepayments, name='latepayments'),
     path('makeadonation/', views.makeadonation, name='makeadonation'),
-    path('totals/', views.totals, name='totals')
-
+    path('totals/', views.totals, name='totals'),
+    path('sept/', views.september, name='september'),
+    path('oct/', views.october, name='october'),
+    path('nov/', views.november, name='november')
     ]

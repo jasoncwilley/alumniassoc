@@ -1,40 +1,241 @@
-{% extends "base.html" %}
+
 {% load widget_tweaks %}
 {% load static %}
-{% load bootstrap3 %}
-{% bootstrap_css %}
 
-{%block content%}
-<div class='instructions'>
-  <p class='instruct'>We currently offer two options for our supports to submit a one time donation.
-    To pay via your credit or debit card simply click on the PayPal button and submit
-    your payment.  If you prefer to use a personal check please print the form below
-    and mail it along with your personal check to the address on the form.  Thank you for
-     supporting St. Leo's Alumni Association.</p>
-</div>
-<div class='buttoncontainer'>
 
-<button class='btn-primary paypalbutton' href='http://www.paypal.com'>PayPal
-</button>
-<br></div>
-<div class='or'><p>
-OR</p><p> Mail in your donation with a copy of the form below.
-</p></div>
+{% load static %}
+<!DOCTYPE html>
+<html data-whatinput="mouse" data-whatintent="mouse" class=" whatinput-types-initial whatinput-types-keyboard whatinput-types-mouse"><head>
+  <meta charset="utf-8">
+  <title>St. Leo School Alumni Association</title>
+  <link rel="stylesheet" href="{% static "css/index.css" %}">
+  <link rel="stylesheet" href="{% static "css/foundation.min.css" %}">
+  <link rel="stylesheet"href="{% static "css/wireframe-theme.min.css" %}">
+  <script>document.createElement( "picture" );</script>
+  <script class="picturefill" async="async" src="{% static "js/picturefill.min.js" %}"></script>
+<link href="https://fonts.googleapis.com/css?family=Aclonica" rel="stylesheet">
+  <link rel="stylesheet" href="{% static "css/main.css" %}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,b">
+<meta class="foundation-mq"></head>
+<style>
+@media screen and (max-width: 600px) {
+  .blockcontent {
+    margin-top: 250px;
+  }
+}
 
-<div class='donationform'>
-<div class='name'><br>
-<p>Dear Donor:</p>
+body {
+  background-color: #FFF7E8;
+  color: #3B2600;
+}
+#signupbutton {
+  color: #FFF7E8;
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  padding-top: 10px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+}
+#signupbutton:hover {
+  color: #3B2600;
+  background-color: #FFF7E8;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #3B2600;
+
+}
+#button:hover {
+background-color: #3B2600;
+border-style: solid;
+border-width: 2px;
+border-color: white;
+color: white;
+
+}
+#clickhere{
+  font-size: 18px;
+  color: #3B2600;
+  margin-left: 0px;
+
+}
+#button {
+  color: #3B2600;
+  text-align: center;
+  margin-left: 75px;
+  margin-right: 75px;
+  font-size: 15px;
+background-color: #FFF7E8;
+border-style: solid;
+border-width: 1px;
+border-color: #3B2600;
+}
+.grid-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 50px 1200px 50px;
+  grid-template-rows: 350px 300px 300px 150px;
+  grid-gap: 1px;
+  grid-template-areas: "margin1 nav margin4" "margin2 blockcontent margin5" "margin3 donorform margin6" ". footer .";
+}
+
+.margin1 { grid-area: margin1; }
+
+.margin2 { grid-area: margin2; }
+
+.margin3 { grid-area: margin3; }
+
+.margin4 { grid-area: margin4; }
+
+.margin5 { grid-area: margin5; }
+
+.margin6 { grid-area: margin6; }
+
+.nav { grid-area: nav; }
+
+.blockcontent { grid-area: blockcontent;
+      margin-left: 50px;
+      margin-right: 50px;
+      font-family: 'Old Standard TT', serif;
+      font-size: 20px;
+      margin-top: 125px;
+
+ }
+
+
+.donorform { grid-area: donorform;
+border-style: dashed;
+border-width: 3px;
+border-color:#3B2600;
+padding-left: 50px;
+margin-top:50px;
+width: 850px;
+
+ }
+ .donorform p {
+     font-family: 'Aclonica', sans-serif;
+     width: 750px;
+ }
+
+
+
+
+.footer { grid-area: footer; }
+
+</style>
+<div class="grid-container">
+  <div class="margin1">
+  </div>
+  <div class="margin2">
+  </div>
+  <div class="margin3">
+  </div>
+  <div class="margin4">
+  </div>
+  <div class="margin5">
+  </div>
+  <div class="margin6">
+  </div>
+  <div class="nav"><br>
+    <h1 class="site-title">St. Leo School Alumni Association</h1>
+    <div class="container nav-wrapper">
+      <a class="link-text nav-button" href="{% url 'makeadonation' %}">Make a Donation</a>
+      <a class="link-text nav-button" href="{% url 'signupform' %}">Join SLS AA Today</a>
+    </div>
+    <div class="container hero-section">
+      <div class="responsive-picture">
+        <picture><img alt="Placeholder Picture" src="{% static 'images/church.jpg' %}" width='1200' height="500px">
+        </picture>
+      </div>
+    </div>
+  </div>
+
+    <div class="blockcontent">
+      <p>We currently offer two options for our supporters to submit a one time donation.
+        To pay via your credit or debit card simply click on the PayPal button and submit
+        your payment.  If you prefer to use a personal check please print the form below
+        and mail it along with your personal check to the address on the form.  Thank you for
+         supporting St. Leo Alumni Association.</p><br>
+         <span  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+           <input type="hidden" name="cmd" value="_s-xclick">
+           <input type="hidden" name="hosted_button_id" value="JY8Q3JMHS7BCN">
+           <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+           <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+           </form>
+
+         </span>
+
+  <div class="donorform">
+
+    <p>Dear Donor:</p>
+
+
+    <p>Thank you for supporting the St. Leo Alumni Association and our efforts to provide a Catholic education to the next generation,
+    <br><br>Please mail your donation to the address listed below.</p>
+    <br>
+
+    <p> SLS AA<br>
+    PO Box 313<br>
+    Versailles, KY 40383</p>
+
+  </div>
+
+  <div class="footer">
+    <div class="container services-grid">
+      <div class="container service">
+        <div class="responsive-picture">
+          <picture><img id='grow' alt="Placeholder Picture" src="{% static 'images/cross.jpg' %}">
+          </picture>
+        </div>
+        <h5 class="service-title">Worship God</h5>
+      </div>
+      <div class="container service">
+        <div class="responsive-picture">
+          <picture><img id='worship' alt="Placeholder Picture" src="{% static 'images/grow.jpeg' %}">
+          </picture>
+        </div>
+        <h5 class="service-title">Grow in Christ<br>
+        </h5>
+      </div>
+      <div class="container service">
+        <div class="responsive-picture">
+          <picture><img id='world'alt="Placeholder Picture" src="{% static 'images/world.jpg' %}">
+          </picture>
+        </div>
+        <h5 class="service-title">Serve the World<br>
+        </h5>
+      </div>
+    </div>
+    <div class="container container-1">
+      <p class="paragraph paragraph-1">If you attended St. Leo School or are a "Friend" who is interested in our efforts to continue
+        to provide a Catholic Education to the Next Generation.  Please Join the Alumni Association.
+      </p><a id='signupbutton' class="link-button action-btn button" href="{% url 'signupform' %}"><strong>Join SLS AA Today!</strong></a>
+    </div>
+    <div class="container footer">
+      <div class="rule">
+        <hr>
+      </div>
+      <div class="container footer-nav">
+        <a id='button' class="link-text  btn link-button action-btn button  footer-nav" href="http://saintleoky.org/">St. Leo School Website/a>
+        <a id='button' class="link-text btn link-button action-btn button footer-nav" href="http://saintleoparishky.org/">St. Leo Church Website</a>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
 </div>
-<div class='statement'>
-<p>Thank you for becoming a member of the Alumni Association and <br>supporting
-St. Leo's School. Please mail your donation to the address <br>below.</p>
-</div><br><br>
-<div class='address'>
-<p> SLS AA<br>
-P.O. Box<br>
-Versailles, KY 40383</p>
-</div>
-</div>
-</div>
-  <h3 class="section-title">
-  </h3>{% endblock %}
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/outofview.js' %}"></script>
+<script src="{% static 'js/what-input.min.js' %}"></script>
+<script src="{% static 'js/foundation.min.js' %}"></script>
+<script>$(document).foundation();</script>
+
+
+</body>
+
+</html>

@@ -6,6 +6,8 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
   <title>St. Leo School Alumni Association</title>
+  
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script class="picturefill" async="async" src="{% static "js/picturefill.min.js" %}"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
@@ -13,13 +15,29 @@
   <link rel="stylesheet" href="{% static "css/foundation.min.css" %}">
   <link rel="stylesheet"href="{% static "css/wireframe-theme.min.css" %}">
   <link rel="stylesheet" href="{% static "css/main.css" %}">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
   <link href="https://fonts.googleapis.com/css?family=Lobster+Two" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,b">
 <meta class="foundation-mq"></head>
 <style>
-body {
-  background-color: #FFF7E8;
+
+@media screen and (min-width: 400px) {
+    body {
+        background-color: lightgreen;
+        width: 50;
+          background-color: #FFF7E8;
+    }
 }
+
+@media screen and (min-width: 800px) {
+    body {
+        background-color: lavender;
+        width: 1200px;
+          background-color: #FFF7E8;
+    }
+}
+
 .table {
   width:1200px;
   border-style: solid;
@@ -27,6 +45,11 @@ body {
   border-width: 2px;
   margin-left: 100px;
   margin-top: 75px;
+}
+.donorname p{
+    font-family: 'Lobster Two', cursive;
+font-size: 25px;
+padding-left: 25px;
 }
 th {
   width: 200px;
@@ -193,7 +216,46 @@ input:focus {
   padding-top: 10px;
   font-size: 18px;
 }
+.dropbtn {
+   background-color: #3498DB;
+   color: white;
+   padding: 16px;
+   font-size: 16px;
+   border: none;
+   cursor: pointer;
+}
 
+
+.dropbtn:hover, .dropbtn:focus {
+   background-color: #2980B9;
+}
+
+.dropdown {
+   position: relative;
+   display: inline-block;
+}
+
+.dropdown-content {
+   display: none;
+   position: absolute;
+   background-color: #f1f1f1;
+   min-width: 160px;
+   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+   z-index: 1;
+}
+
+
+.dropdown-content a {
+   color: black;
+   padding: 12px 16px;
+   text-decoration: none;
+   display: block;
+}
+
+
+.dropdown-content a:hover {background-color: #ddd}
+
+.show {display:block;}
 
 #button:hover {
 background-color: #3B2600;
@@ -232,13 +294,13 @@ border-color: #3B2600;
   width: 1000px;
   height: 1000px;
   font-size: 16px;
-  margin-left: 25px;
+  margin-left: 325px;
   margin-top: 15px;
   }
 .form-control {
 width:300px;
 font-size: 22px;
-margin-left: 50px;
+margin-left: 450px;
 border-style: solid;
 border-width: 2px;
 border-color: black;
@@ -246,7 +308,7 @@ margin-bottom: 15px;
 }
 label {
 font-size: 23px;
-margin-left: 25px;
+margin-left: 400px;
 margin-bottom: 15px;
 }
 input {
@@ -258,7 +320,7 @@ margin-top: 5px;
   width: 120px;
   height: 60px;
   font-size: 22px;
-  margin-left: 290px;
+  margin-left: 750px;
   margin-top: 25px;
   color: white;
 border-color: white;
@@ -310,9 +372,9 @@ margin-top: 50px;
   border-color: black;
   border-width: 3px;
   margin-left: 5px;
-  margin-top: 50px;
+  margin-top: 100px;
   padding-right: 50px;
-  margin-left: 25px;
+  margin-left: 325px;
 
 
 }
@@ -321,6 +383,11 @@ margin-top: 50px;
   margin-left: 15px;
   margin-top: 25px;
   font-family: 'Lobster Two', cursive;
+}
+#forminstructions {
+text-align: center;
+margin-left: 400px;
+  width: 1000px;
 }
 .statement p{
   font-size: 25px;
@@ -334,23 +401,26 @@ margin-top: 50px;
   margin-left: 500px;
   margin-bottom: 10px;
 }
-.instuct p{
+.instruct p{
+  width: 800px;
 
   font-family: 'Old Standard TT', serif;
 
 }
 .instructions p {
-  width:700px;
+  width:1220px;
   margin-right: 25px;
-  margin-left: 50px;
+  margin-left: 350px;
   height: 150px;
   padding-left: 15px;
   margin-top: 50px;
-  text-align: left;
+  text-align: center;
   font-size: 20px;
+  font-family: 'Old Standard TT', serif;
+  font-size: 25px;
   }
   .paypalbutton {
-    width: 150px;
+    width: 200px;
     height: 150px;
     color: white;
     font-size: 25px;
@@ -360,12 +430,7 @@ margin-top: 50px;
     border-color: white;
     background-color: #3B2600;
   }
-.or p{
-  font-family: 'Old Standard TT', serif;
-  font-size: 25px;
-  width: 750px;
-  margin-left: 25px;
-}
+
   .paypalbutton:hover {
       background-color: #FFF7E8;
       border-width: 3px;
@@ -374,10 +439,37 @@ margin-top: 50px;
       color: #3B2600;
   }
 .buttoncontainer {
- margin-left: 25px;
- width: 400px;
+ margin-left: 275px;
+ width: 1000px;
  height: 125px;
  margin-bottom: 50px;
+
+}
+.buttoncontainer span{
+  font-size: 25px;
+font-family: 'Old Standard TT', serif;
+}
+.nav-wrapper a {
+  width: 250px;
+  background-color: #3B2600;
+  color: #FFF7E8;
+
+}
+.nav-wrapper a:hover {
+  background-color: #FFF7E8
+  color: #3B2600;
+
+}
+.btn-primary {
+  background-color: #3B2600;
+  color: #FFF7E8;
+
+}
+.hero-section {
+  width: 100%;
+}
+.blockcontent{
+  text-align: center;
 }
 
 </style>
@@ -385,13 +477,13 @@ margin-top: 50px;
 <body class="" cz-shortcut-listen="true">
   <h1 class="site-title">St. Leo School Alumni Association</h1>
   <div class="container nav-wrapper">
-    <a class="link-text nav-button" href="{% url 'index' %}">Make a Donation</a>
-    <a class="link-text nav-button" href="{% url 'signupform' %}">Join SLAA Today</a>
+    <a class="btn-primary "href="{% url 'makeadonation' %}">Make a Donation</a>
+    <a class="btn-primary" href="{% url 'signupform' %}">Join SLS AA Today</a>
   </div>
-  {% endblock %}
+{% endblock %}
   <div class="container hero-section">
     <div class="responsive-picture">
-      <picture><img alt="Placeholder Picture" src="{% static 'images/church1.jpg' %}">
+      <picture><img alt="Placeholder Picture" src="{% static 'images/church.jpg' %}">
       </picture>
     </div>
   </div>
@@ -438,14 +530,14 @@ margin-top: 50px;
   <div class="container container-1">
     <p class="paragraph paragraph-1">If you attended St. Leo School or are a "Friend" who is interested in our efforts to continue
       to provide a Catholic Education to the Next Generation.  Please Join the Alumni Association.
-    </p><a id='signupbutton' class="link-button action-btn button" href="{% url 'signupform' %}"><strong>Join SLAA Today!</strong></a>
+    </p><a id='signupbutton' class="link-button action-btn button" href="{% url 'signupform' %}"><strong>Join SLS AA Today!</strong></a>
   </div>
   <div class="container footer">
     <div class="rule">
       <hr>
     </div>
     <div class="container footer-nav">
-      <a id='button' class="link-text  btn link-button action-btn button  footer-nav" href="http://saintleoky.org/">St. Leo School Website</a>
+      <a id='button' class="link-text  btn link-button action-btn button  footer-nav" href="http://saintleoky.org/">St. Leo School Website/a>
       <a id='button' class="link-text btn link-button action-btn button footer-nav" href="http://saintleoparishky.org/">St. Leo Church Website</a>
     </div>
   </div>
@@ -456,6 +548,26 @@ margin-top: 50px;
   <script src="{% static 'js/what-input.min.js' %}"></script>
   <script src="{% static 'js/foundation.min.js' %}"></script>
   <script>$(document).foundation();</script>
+  <script>/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
 
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
 
 </body></html>
