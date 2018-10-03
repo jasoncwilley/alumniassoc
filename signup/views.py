@@ -39,17 +39,17 @@ def october(request):
         d2 = datetime(2018, 10, 31)
         accounts = DonorInfo.objects.filter(date_recvd__gte=d1, date_recvd__lte=d2)
         october = DonorInfo.objects.all()
-        for x in october:
+        for x in accounts:
             t = x.amount_recvd
             tlist=[]
-            for x in october:
+            for x in accounts:
                 tlist.append(x.amount_recvd)
                 octobersum = (sum(tlist))
             context = { 'octobersum': octobersum, 'october': october, 'accounts': accounts, 'paytments': payments, 'amount_recvd':amount_recvd, 'name':name}
             return render(request, 'october.html', context)
 
-    context = { 'octobersum': octobersum, 'october': october, 'accounts': accounts, 'paytments': payments,  'amount_recvd':amount_recvd, 'name':name}
-    return render(request, 'october.html', context)
+        context = { 'october': october, 'accounts': accounts, 'paytments': payments,  'amount_recvd':amount_recvd, 'name':name}
+        return render(request, 'october.html', context)
 
 def november(request):
     pass

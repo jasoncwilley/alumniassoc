@@ -6,7 +6,8 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
   <title>St. Leo School Alumni Association</title>
-  
+  <link rel="icon"  href="{% static "images/favicon.ico" %}">
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script class="picturefill" async="async" src="{% static "js/picturefill.min.js" %}"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -22,20 +23,10 @@
 <meta class="foundation-mq"></head>
 <style>
 
-@media screen and (min-width: 400px) {
-    body {
-        background-color: lightgreen;
-        width: 50;
-          background-color: #FFF7E8;
-    }
-}
-
-@media screen and (min-width: 800px) {
-    body {
-        background-color: lavender;
-        width: 1200px;
-          background-color: #FFF7E8;
-    }
+.church {
+  margin-top: 25px;
+  width: 1400px;
+  height: 250px;
 }
 
 .table {
@@ -482,9 +473,9 @@ font-family: 'Old Standard TT', serif;
   </div>
 {% endblock %}
   <div class="container hero-section">
-    <div class="responsive-picture">
-      <picture><img alt="Placeholder Picture" src="{% static 'images/church.jpg' %}">
-      </picture>
+    <div class="church">
+    <img  height='250px' width='1200px' alt="Placeholder Picture" src="{% static 'images/church.jpg' %}" width='1200' height="500px">
+
     </div>
   </div>
 <div class='blockcontent'>
@@ -537,7 +528,7 @@ font-family: 'Old Standard TT', serif;
       <hr>
     </div>
     <div class="container footer-nav">
-      <a id='button' class="link-text  btn link-button action-btn button  footer-nav" href="http://saintleoky.org/">St. Leo School Website/a>
+      <a id='button' class="link-text  btn link-button action-btn button  footer-nav" href="http://saintleoky.org/">St. Leo School Website</a>
       <a id='button' class="link-text btn link-button action-btn button footer-nav" href="http://saintleoparishky.org/">St. Leo Church Website</a>
     </div>
   </div>

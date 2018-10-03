@@ -4,6 +4,11 @@
 
 <!DOCTYPE html>
 <html data-whatinput="mouse" data-whatintent="mouse" class=" whatinput-types-initial whatinput-types-keyboard whatinput-types-mouse"><head>
+  <link rel="icon"  href="{% static "images/favicon.ico" %}">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <meta charset="utf-8">
   <title>St. Leo School Alumni Association</title>
   <link rel="stylesheet" href="{% static "css/index.css" %}">
@@ -116,7 +121,11 @@ width: 850px;
      width: 750px;
  }
 
-
+ .church {
+   margin-top: 25px;
+   width: 1400px;
+   height: 250px;
+ }
 
 
 .footer { grid-area: footer; }
@@ -142,8 +151,8 @@ width: 850px;
       <a class="link-text nav-button" href="{% url 'signupform' %}">Join SLS AA Today</a>
     </div>
     <div class="container hero-section">
-      <div class="responsive-picture">
-        <picture><img alt="Placeholder Picture" src="{% static 'images/church.jpg' %}" width='1200' height="500px">
+      <div class="church">
+        <picture><img  height='250px' width='1200px' alt="Placeholder Picture" src="{% static 'images/church.jpg' %}" width='1200' height="500px">
         </picture>
       </div>
     </div>
@@ -214,7 +223,7 @@ width: 850px;
         <hr>
       </div>
       <div class="container footer-nav">
-        <a id='button' class="link-text  btn link-button action-btn button  footer-nav" href="http://saintleoky.org/">St. Leo School Website/a>
+        <a id='button' class="link-text  btn link-button action-btn button  footer-nav" href="http://saintleoky.org/">St. Leo School Website</a>
         <a id='button' class="link-text btn link-button action-btn button footer-nav" href="http://saintleoparishky.org/">St. Leo Church Website</a>
       </div>
     </div>

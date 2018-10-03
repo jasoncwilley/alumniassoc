@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html data-whatinput="mouse" data-whatintent="mouse" class=" whatinput-types-initial whatinput-types-keyboard whatinput-types-mouse"><head>
   <meta charset="utf-8">
+    <link rel="icon"  href="{% static "images/favicon.ico" %}">
   <title>St. Leo School Alumni Association</title>
   <link rel="stylesheet" href="{% static "css/index.css" %}">
   <link rel="stylesheet" href="{% static "css/foundation.min.css" %}">
@@ -108,6 +109,38 @@ label {
   margin-right: 315px;
 
 }
+.church {
+  margin-top: 25px;
+  width: 1400px;
+  height: 250px;
+}
+.formbutton {
+  border-radius: 50%;
+  font-size: 18px;
+  color: white;
+  background-color: #3B2600;
+  border-style: solid;
+  border-width: 3px;
+  border-color: white;
+  width: 125px;
+  height: 50px;
+  margin-top: 25px;
+  margin-left: 250px;
+}
+.formbutton:hover {
+  border-radius: 50%;
+  font-size: 18px;
+  color: #3B2600;
+  background-color: #FFF7E8;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #3B2600;
+  width: 125px;
+  height: 50px;
+  margin-top: 25px;
+  margin-left: 250px;
+}
+
 
 </style>
 <div class="grid-container">
@@ -130,9 +163,9 @@ label {
       <a class="link-text nav-button" href="{% url 'signupform' %}">Join SLS AA Today</a>
     </div>
     <div class="container hero-section">
-      <div class="responsive-picture">
-        <picture><img alt="Placeholder Picture" src="{% static 'images/church.jpg' %}" width='1200' height="500px">
-        </picture>
+        <div class="church">
+          <picture><img  height='250px' width='1200px' alt="Placeholder Picture" src="{% static 'images/church.jpg' %}" width='1200' height="500px">
+          </picture>
       </div>
     </div>
   </div>
